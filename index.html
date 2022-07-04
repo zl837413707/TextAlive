@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/textalive-app-api/dist/index.js"></script>
+
+</head>
+
+<body>
+    <div class="overlay">
+        <div class="ring">Loading
+            <span></span>
+          </div>
+    </div>
+
+    <div class="explain">
+        <div class="example">
+            <h3>①マウスで文字をクリックすると花火が表示されます</h3>
+            <h3>②クリックに成功すると、右下の数字が増えます</h3>
+            <h3>③右上のボタンで文字の大きさや花火を調整できます</h3>
+            <h1>花火をこの星空に満たしましょう</h1>
+        </div>
+    </div>
+
+    <div id="header">
+
+        <div id="control" class="far">
+            <a href="#" id="play" class="icon-play2"></a>
+            <a href="#" id="stop" class="icon-stop"></a>
+        </div>
+
+        <div id="meta">
+            <div id="artist">artist: <span>-</span></div>
+            <div id="song">song: <span>-</span></div>
+        </div>
+    </div>
+
+    <div id="media"></div>
+
+    <div id="lyrics">
+        <div class="icon-menu Btn"></div>
+        <div class="control">
+            文字サイズ<div class="parent"><div class="div1"></div></div>
+            花火の粒子の数<div class="parent"><div class="div2"></div></div>
+            花火の範囲<div class="parent"><div class="div3"></div></div>
+        </div>
+
+        <div id="text"></div>
+
+        <div class="moon">
+        </div>
+
+        <div class="count">
+            <i>0</i>
+            <i>0</i>
+            <i>0</i>
+        </div>
+
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,509 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('./mouse.ico'), auto;
+}
+
+html,
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    user-select: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background: #0006;
+    color: #fffc;
+    z-index: 5;
+}
+
+#header {
+    position: fixed;
+    left: 0;
+    color: #fff;
+    z-index: 1;
+}
+
+#header,
+#media {
+    position: fixed;
+    left: 0;
+    color: #fff;
+    z-index: 1;
+}
+
+#header {
+    bottom: 0;
+    padding: 10px 16px;
+    font-size: 10.5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#control {
+    font-size: 21px;
+    padding-right: 10px;
+    border-right: 1px solid #fff9;
+}
+
+.icon-pause,
+.icon-play2,
+.icon-stop {
+    font-size: 30px;
+}
+
+#control.disabled {
+    display: none;
+}
+
+#control a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+#control a.disabled {
+    opacity: 0.3;
+}
+
+#control a:hover {
+    color: rgb(255 148 56);
+}
+
+#meta {
+    padding-left: 10px;
+}
+
+#meta span {
+    font-weight: normal;
+}
+
+#media {
+    bottom: 10px;
+}
+
+#media.disabled>.textalive-media-wrapper {
+    width: 0;
+    height: 0;
+}
+
+#lyrics {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #1e2a41, #062d3b, #082e2f, #182c22, #24291b);
+}
+
+#text {
+    font-size: 40px;
+}
+
+#text>div {
+    display: inline-block;
+    height: 45px;
+}
+
+#text>div>span {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+        0 0 0 8px rgba(255, 255, 255, 0.1),
+        0 0 20px rgba(255, 255, 255, 1);
+    animation: showLyrics 1.3s, movement 5s linear;
+    opacity: 0;
+}
+
+#text>div>span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+    opacity: 1;
+}
+
+@keyframes showLyrics {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#text>div>i {
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-family: "Shippori Mincho B1", serif;
+    color: #fff;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #fff;
+    opacity: 0;
+    animation: showWord 1.3s, movement 5s linear, moveWrod 4s linear 1.3s;
+    animation-fill-mode: forwards;
+}
+
+#text>div>i:hover {
+    color: #fff;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px rgb(215, 244, 153),
+        0 0 40px rgb(132, 235, 148),
+        0 0 60px rgb(132, 235, 225),
+        0 0 80px rgb(169, 167, 238),
+        0 0 80px rgb(237, 159, 231);
+}
+
+@keyframes showWord {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes movement {
+    0% {
+        transform: rotate(315deg) translateX(0);
+    }
+
+    100% {
+        transform: rotate(315deg) translateX(-1000px);
+    }
+}
+
+@keyframes moveWrod {
+    0% {
+        transform: translate3d(-170px, 170px, 0px) rotateY(0);
+
+    }
+
+    50% {
+        transform: translate3d(-170px, 580px, 0px) rotateY(180deg);
+    }
+
+    100% {
+        transform: translate3d(-170px, 1000px, 0px) rotateY(360deg);
+
+    }
+}
+
+.star,
+.star_1,
+.star_2 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 2px solid #fff;
+}
+
+.star {
+    opacity: 1;
+    transform: scale(0.6);
+}
+
+.star_1 {
+    opacity: 0.4;
+    transform: scale(0.2);
+}
+
+.star_2 {
+    opacity: 0.6;
+    animation: animate 5s linear infinite;
+    transform: scale(0.4);
+}
+
+@keyframes animate {
+    20% {
+        opacity: 0.2;
+    }
+
+    40% {
+        opacity: 0.5;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.moon {
+    position: absolute;
+    top: 70px;
+    right: 350px;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    filter: blur(0.3px);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #fff;
+}
+
+.Btn {
+    position: absolute;
+    right: 2%;
+    top: 50px;
+    font-size: 25px;
+    color: #fff;
+}
+
+.Btn:hover {
+    color: #ff9438;
+
+}
+
+.control {
+    position: absolute;
+    right: 5%;
+    top: 20px;
+    margin-top: -150px;
+    color: #fff;
+    font-weight: 700;
+    transition: all 0.1s linear;
+}
+
+.parent {
+    width: 200px;
+    height: 10px;
+    background: rgba(173, 170, 170, 0.3);
+
+}
+
+.div1,
+.div2,
+.div3 {
+    width: 20px;
+    height: 10px;
+    background: #90abbd;
+    position: absolute;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: transparent;
+    border: 3px solid #3c3c3c;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 150px;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.ring:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    border-radius: 50%;
+    animation: animateA 2s linear infinite;
+}
+
+.ring>span {
+    display: block;
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 50%;
+    width: 50%;
+    height: 4px;
+    background: transparent;
+    transform-origin: left;
+    animation: animateB 2s linear infinite;
+}
+
+.ring>span:before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    top: -6px;
+    right: -8px;
+    box-shadow: 0 0 20px #fff;
+}
+
+@keyframes animateA {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animateB {
+    0% {
+        transform: rotate(45deg);
+    }
+
+    100% {
+        transform: rotate(405deg);
+    }
+}
+
+.explain {
+    user-select: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    background: #0006;
+    z-index: 3;
+    display: none;
+}
+
+.example h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 12px 48px;
+    color: #fff;
+    background: linear-gradient(to right, #4d4d4d 0, #fff 10%, #4d4d4d 20%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    font-weight: 600;
+    font-size: 30px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+
+    60% {
+        background-position: 485px;
+    }
+
+    100% {
+        background-position: 485px;
+    }
+}
+
+.example h3 {
+    margin-top: 100px;
+    text-align: center;
+    font-family: "Shippori Mincho B1", serif;
+    font-weight: 485;
+    color: #fff;
+
+}
+
+.count {
+    position: absolute;
+    bottom: 50px;
+    right: 40px;
+    font-size: 25px;
+    color: #fff;
+}
+
+.count :nth-child(1) {
+    display: inline-block;
+}
+
+.ani {
+    animation: jump 1.4s infinite linear;
+}
+
+.count :nth-child(2) {
+    display: inline-block;
+}
+
+.ani1 {
+    animation: jump 1.4s infinite linear 0.2s;
+}
+
+.count :nth-child(3) {
+    display: inline-block;
+}
+
+.ani2 {
+    animation: jump 1.4s infinite linear 0.4s;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0px);
+    }
+
+    55% {
+        transform: translateY(-20px);
+    }
+
+    75% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
