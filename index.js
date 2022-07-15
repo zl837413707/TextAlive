@@ -458,9 +458,7 @@ updateCanvasSize();
 
 textContainer.addEventListener('click', (e) => {
 
-    let clientY = e.clientY - 30
-
-    createFirework(e.clientX, clientY);
+    createFirework(e.clientX, e.clientY);
 
     disableAutoFireworks = true;
 

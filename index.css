@@ -108,6 +108,7 @@ body {
 
 #text {
     font-size: 40px;
+    height: 0px;
 }
 
 #text>div {
