@@ -11,7 +11,6 @@ const player = new Player({
 
 let overlay = document.querySelector(".overlay");
 let textContainer = document.querySelector("#text");
-let explain = document.querySelector('.explain');
 let Count = document.querySelector('.count');
 let count = Count.querySelectorAll('i');
 
@@ -48,7 +47,6 @@ player.addListener({
 
         overlay.className = "disabled";
 
-        explain.style.display = "block";
     },
 
 
@@ -150,12 +148,6 @@ document.querySelector("#control > a#stop").addEventListener("click", (e) => {
     return false;
 });
 
-// 説明
-explain.addEventListener('click', () => {
-
-    explain.style.display = "none";
-
-})
 
 // 星
 function starInit(starCount) {
